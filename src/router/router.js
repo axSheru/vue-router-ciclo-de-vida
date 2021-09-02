@@ -5,10 +5,16 @@ import NoPageFound from '@/modules/shared/pages/NoPageFound';
 const routes = [
     {
         path: '/',
+        redirect: '/home'
+    },
+    {
+        path: '/home',
+        name: 'home',
         component: () => import(/* webpackChunkName: "ListPage" */ '@/modules/pokemon/pages/ListPage' )
     },
     {
         path: '/about',
+        name: 'about',
         component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/AboutPage' )
     },
     {
