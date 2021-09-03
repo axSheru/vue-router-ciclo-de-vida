@@ -18,9 +18,11 @@ export default {
     data() {
         return {
             links: [
-                { to: '/home', name: 'Pokemons' },
-                { to: '/pokemonid/50', name: 'Por ID' },
-                { to: '/about', name: 'About' },
+                { to: 'pokemon-home', name: 'Pokemons' },
+                { to: 'pokemon-id', name: 'Por ID', id: 207 },
+                { to: 'pokemon-about', name: 'About' },
+                { to: 'sw-characters', name: 'Personajes' },
+                { to: 'sw-about', name: 'About SW' },
                 { to: 'https://google.com', name: 'Google' },
             ]
         }
