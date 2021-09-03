@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-import NoPageFound from '@/modules/shared/pages/NoPageFound';
+import isAuthenticatedGuard from './auth-guard';
 
 const routes = [
     {
@@ -40,6 +40,7 @@ const routes = [
     {
         path: '/starwars',
         name: 'starwars',
+        beforeEnter: [ isAuthenticatedGuard ],
         component: () => import(/* webpackChunkName: "StarWarsLayout" */ '@/modules/starwars/layouts/StarWarsLayout' ),
         children: [
             {
@@ -84,7 +85,8 @@ const router = createRouter({
     }
 }) */
 
-const canAccess = () => {
+//Guard global asíncrono.
+/* const canAccess = () => {
     return new Promise( resolve => {
         const random = Math.random() * 100
         if ( random > 50 ) {
@@ -103,6 +105,6 @@ router.beforeEach( async( to, from, next ) =>{
 
     authorized ? next() : next({ name: 'pokemon-home' })
 
-})
+}) */
 
 export default router
