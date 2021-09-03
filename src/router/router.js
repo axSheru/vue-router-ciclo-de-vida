@@ -38,6 +38,27 @@ const routes = [
         ]
     },
     {
+        path: '/starwars',
+        name: 'starwars',
+        component: () => import(/* webpackChunkName: "StarWarsLayout" */ '@/modules/starwars/layouts/StarWarsLayout' ),
+        children: [
+            {
+                path: 'characters',
+                name: 'sw-characters',
+                component: () => import(/* webpackChunkName: "Characters" */ '@/modules/starwars/pages/Characters' ),
+            },
+            {
+                path: 'about',
+                name: 'sw-about',
+                component: () => import(/* webpackChunkName: "AboutStarWars" */ '@/modules/starwars/pages/About' ),
+            },
+            {
+                path: '',
+                redirect: { name: 'sw-characters' }
+            }
+        ]
+    },
+    {
         path: '/:pathMatch(.*)*',
         component: () => import(/* webpackChunkName: "NoPageFound" */ '@/modules/shared/pages/NoPageFound' )
     },
